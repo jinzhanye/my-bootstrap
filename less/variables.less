@@ -1,0 +1,62 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+//lighten是less内置函数
+//lighten： Increase the lightness of a color in the HSL color space by an absolute amount.
+@gray-base: #000;
+@gray-dark: lighten(@gray-base, 20%); // #333
+
+
+
+// == Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg: #fff;
+//** Global text color on `<body>`.
+@text-color: @gray-dark;
+
+
+
+//== Typography  排版
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+//无衬字体，用这些字体是出于设计原因还是兼容性？？
+@font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//衬线字体
+@font-family-serif: Georgia, "Times New Roman", Times, serif;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+//<code>显示单行内敛代码。
+//<kbd>显示用户输入代码。主要是用来标记用户输入的内容。
+//<pre>新生多行代码块。不同地方的markdowm渲染不同。就是样式设定的不一样。
+
+//等宽字体
+@font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base: @font-family-serif;
+//默认字体大小
+@font-size-base: 14px;
+
+@font-size-base: 14px;
+//ceil向上取整，floor向下取整，字体大小以2px渐进
+@font-size-large: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h1: floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2: floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3: ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5: @font-size-base;
+@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+@line-height-base: 1.428571429; //20/14
+

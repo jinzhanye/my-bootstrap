@@ -1,0 +1,32 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+// 统一css盒模型为border-box
+// border-box的好处：
+// Better box model by default. Everything in Bootstrap gets box-sizing: border-box, making for easier sizing options and an enhanced grid system.
+* {
+  .box-sizing(border-box);
+}
+
+//为什么在前后加border-box??
+*::before,
+*::after {
+  .box-sizing(border-box);
+}
+
+//Body reset
+html {
+  font-size: 10px;
+  //-webkit-tap-highlight-color: rgba(0, 0, 0, 0);适用于webkit内核浏览器中取消可点击元素的半透明灰色背景??
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  //默认颜色 #333
+  color: @text-color;
+  background: @body-bg;
+}
