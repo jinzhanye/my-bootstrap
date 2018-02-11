@@ -1,0 +1,24 @@
+//
+// Grid system
+// --------------------------------------------------
+
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  .container-fixed();
+
+  @media(min-width: @screen-sm-min) {//768px
+    width: @container-sm;//750px
+  }
+
+  @media(min-width: @screen-md-min) {//992px
+    width: @container-md;//970px
+  }
+
+  @media(min-width: @screen-lg-min){//1200px
+    width: @container-lg;//1170px
+  }
+}

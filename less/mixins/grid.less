@@ -1,0 +1,16 @@
+// Grid system
+//
+// Generate semantic(语义的) grid columns with these mixins.
+
+// Centered container element
+.container-fixed(@gutter:@grid-gutter-width) { //@grid-gutter-width:30px
+  //居中
+  margin-right: auto;
+  margin-left: auto;
+  //设置内间距
+  padding-left: floor((@gutter/2));//15px
+  padding-right: ceil((@gutter/2));//15px
+
+  //clearfix 定义在 mixins/clearfix.less
+  &:extend(.clearfix all);//??
+}

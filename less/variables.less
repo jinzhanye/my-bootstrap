@@ -2,9 +2,6 @@
 // Variables
 // --------------------------------------------------
 
-
-
-
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
@@ -14,8 +11,6 @@
 @gray-base: #000;
 @gray-dark: lighten(@gray-base, 20%); // #333
 
-
-
 // == Scaffolding
 //
 //## Settings for some of the most global styles.
@@ -24,8 +19,6 @@
 @body-bg: #fff;
 //** Global text color on `<body>`.
 @text-color: @gray-dark;
-
-
 
 //== Typography  排版
 //
@@ -60,3 +53,86 @@
 
 @line-height-base: 1.428571429; //20/14
 
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+// 适应手机
+// Extra small screen / phone
+// 定义@screen-xs、@screen-xs-min、@screen-phone 为480px
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs: 480px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min: @screen-xs;
+//** Deprecated `@screen-phone` as of v3.0.1
+@screen-phone: @screen-xs-min;
+
+// 适应平板电脑
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+//** Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet: @screen-sm-min;
+
+// 适应台式机
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop: @screen-md-min;
+
+//适应宽屏台式机
+// Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop: @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+// 当需要时提供一个最大值，使媒体查询不会重叠
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+//列数
+@grid-columns: 12;
+//** Padding between columns. Gets divided in half for the left and right.
+//列间距
+@grid-gutter-width: 30px;
+// Navbar collapse ???
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     @screen-sm-min;
+//** Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+// 前面定义@grid-gutter-width:30px
+// 随着屏幕变大，页面两边的空白会越来越多  18 => 22 => 30
+@container-tablet:             (720px + @grid-gutter-width);//768 - 750 = 18
+//** For `@screen-sm-min` and up.
+@container-sm:                 @container-tablet;
+
+// Medium screen / desktop
+@container-desktop:            (940px + @grid-gutter-width);//992 - 970 = 22
+//** For `@screen-md-min` and up.
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      (1140px + @grid-gutter-width);//1200 - 1170 =  30
+//** For `@screen-lg-min` and up.
+@container-lg:                 @container-large-desktop;
