@@ -1,0 +1,38 @@
+//extend
+nav ul {
+  &:extend(.inline);
+  background: blue;
+}
+
+.inline {
+  color: red;
+}
+
+
+//Mixin Guards
+//带条件的mixins。
+//guards中可用的比较运算符的完整列表为： >, >=, =, =<, <。此外，关键字true是让两个mixins等价的唯一真值：
+.mixin (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
+.mixin (@a) {
+  color: @a;
+}
+
+.class1 { .mixin(#ddd) }
+.class2 { .mixin(#555) }
+
+//避免编译
+//有时候我们需要输出一些不正确的CSS语法或者使用一些 LESS不认识的专有语法.
+
+//要输出这样的值我们可以在字符串前加上一个 ~ 表示避免编译, 例如:
+.class3 {
+  filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+}
+//如果是这样写会进行编译，报编译错误
+//.class3 {
+//  filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
+//}

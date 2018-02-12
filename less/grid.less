@@ -22,3 +22,63 @@
     width: @container-lg;//1170px
   }
 }
+
+// Fluid container
+// 流体布局
+// Utilizes(利用) the mixin meant(表示) for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+// container的宽度都是固定的，container-fluid没有指定宽度，所以说是流体布局
+.container-fluid {
+  .container-fixed();
+}
+
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+.row {
+  .make-row()
+}
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+// line:1615
+.make-grid-columns();
+
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+.make-grid(xs);
+
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: @screen-sm-min) {
+  .make-grid(sm);
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: @screen-md-min) {
+  .make-grid(md);
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: @screen-lg-min) {
+  .make-grid(lg);
+}

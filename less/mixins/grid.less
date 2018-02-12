@@ -8,9 +8,16 @@
   margin-right: auto;
   margin-left: auto;
   //设置内间距
-  padding-left: floor((@gutter/2));//15px
-  padding-right: ceil((@gutter/2));//15px
+  padding-left: floor((@gutter/2)); //15px
+  padding-right: ceil((@gutter/2)); //15px
 
   //clearfix 定义在 mixins/clearfix.less
-  &:extend(.clearfix all);//??
+  &:extend(.clearfix all); //??
+}
+
+// Creates a wrapper for a series of columns
+.make-row(@gutter:@grid-gutter-width) {
+  margin-left: floor((@gutter/2));
+  margin-right: ceil((@gutter/2));
+  &:extend(.clearfix all);
 }
