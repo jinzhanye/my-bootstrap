@@ -1,0 +1,30 @@
+// CSS image replacement
+//
+// Heads up! v3 launched with only `.hide-text()`, but per our pattern for
+// mixins being reused as classes with the same name, this doesn't hold up. As
+// of v3.0.1 we have added `.text-hide()` and deprecated `.hide-text()`.
+//
+// Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+
+// Deprecated as of v3.0.1 (has been removed in v4)
+
+//使用 .text-hide 或 Sass mixin 隱藏一個元素的文字內容並替換成背景圖片。
+//使用 .text-hide 來維持標籤的親和性及 SEO，但要使用 background-image 取代文字內容。
+.hide-text() {
+  //大小/行高 0/0
+  //a是个最短的字体名称，但不可能客户端有装这个名称的字体，只是用来为了通过css validation的。
+  font: ~"0/0" a;
+  //设置字体为0后就只可以完全隐藏字体了，为什么还要设置下面的样式??
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+//使用方法如下
+//<h1 class="text-hide" style="width: 50px;height: 50px;background-image: url(TestPic.png)">
+//测试text-hide
+//</h1>
+
+.text-hide() {
+  .hide-text();
+}
