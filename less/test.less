@@ -61,3 +61,16 @@ nav div {
 //.class3 {
 //  filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
 //}
+
+
+.text-emphasis-variant(@color) {
+  color: @color;
+  a&:hover,
+  a&:focus {
+    color: darken(@color, 10%);
+  }
+}
+
+.text-primary {
+  .text-emphasis-variant(blue)
+}
