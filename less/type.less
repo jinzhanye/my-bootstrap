@@ -184,6 +184,45 @@ ol {
   }
 }
 
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom:@line-height-computed;
+}
+dt,
+dd {
+  line-height:@line-height-computed;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+.dl-horizontal {
+  dd {
+    &:extend(.clearfix all);
+  }
+
+  @media (min-width: @dl-horizontal-breakpoint) {//768px
+    dt {
+      float: left;
+      width:(@dl-horizontal-offset - 20);//160 = 180 - 20
+      clear: left;//dt左侧不允许出现浮动元素
+      text-align: right;
+      .text-overflow();
+    }
+    dd {
+      margin-left: @dl-horizontal-offset;//180px
+    }
+  }
+}
 
 // Misc
 // -------------------------

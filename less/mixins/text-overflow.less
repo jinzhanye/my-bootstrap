@@ -1,0 +1,10 @@
+// Text overflow
+// Requires inline-block or block for proper styling
+
+//当文字超过容器宽度时以省略号显示
+//如：abc....
+.text-overflow() {
+  white-space: nowrap;//不换行
+  overflow: hidden;
+  text-overflow: ellipsis; //当文字超过容器宽度时以省略号显示 ellipsis中文是省略号
+}
