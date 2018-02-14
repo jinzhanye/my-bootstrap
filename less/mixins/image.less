@@ -1,0 +1,17 @@
+// Image Mixins
+// - Responsive image
+// - Retina image
+
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+//保持图像不超过他们父节点的宽度。
+.img-responsive(@display:block) {
+  display: @display;
+  // Part 1: Set a maximum relative to the parent
+  max-width: 100%;
+  //Part 2: Scale the height according to the width, otherwise you get stretching
+  //根据宽度调整高度，否则图像会拉伸。
+  //height默认值就是auto，为什么还要显式设置？
+  height: auto;
+}

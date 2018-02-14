@@ -1,14 +1,30 @@
 //extend
 nav ul {
   //.inline必须是存在的伪类，不能是mixins
-  &:extend(.inline);
+  &:extend(.inline all);
   background: blue;
 }
 
-.inline {
-  color: red;
+nav div {
+  //不加all的话无法扩展伪元素
+  &:extend(.inline);
+  background: green;
 }
 
+.inline {
+  .inline();
+}
+
+.inline() {
+  color: red;
+  font-size: 16px;
+  &::after {
+    color: yellow;
+  }
+  &::before{
+    color: black;
+  }
+}
 
 //Mixin Guards
 //带条件的mixins。
@@ -16,15 +32,22 @@ nav ul {
 .mixin (@a) when (lightness(@a) >= 50%) {
   background-color: black;
 }
+
 .mixin (@a) when (lightness(@a) < 50%) {
   background-color: white;
 }
+
 .mixin (@a) {
   color: @a;
 }
 
-.class1 { .mixin(#ddd) }
-.class2 { .mixin(#555) }
+.class1 {
+  .mixin(#ddd)
+}
+
+.class2 {
+  .mixin(#555)
+}
 
 //避免编译
 //有时候我们需要输出一些不正确的CSS语法或者使用一些 LESS不认识的专有语法.
@@ -33,6 +56,7 @@ nav ul {
 .class3 {
   filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
 }
+
 //如果是这样写会进行编译，报编译错误
 //.class3 {
 //  filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
