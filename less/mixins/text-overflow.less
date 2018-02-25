@@ -4,7 +4,7 @@
 //当文字超过容器宽度时以省略号显示
 //如：abc....
 .text-overflow() {
-  white-space: nowrap;//不换行
-  overflow: hidden;
+  white-space: nowrap;//文本不换行，直到遇到<br>才换行
+  overflow: hidden;//隐藏超出窗口宽度的文字
   text-overflow: ellipsis; //当文字超过容器宽度时以省略号显示 ellipsis中文是省略号
 }
